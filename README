@@ -3,13 +3,19 @@ NAME
     Perinci::CmdLine::Any)
 
 VERSION
-    This document describes version 0.01 of Perinci::Examples::Bin::Any
+    This document describes version 0.02 of Perinci::Examples::Bin::Any
     (from Perl distribution Perinci-Examples-Bin-Any), released on
     2014-07-18.
 
 DESCRIPTION
     This distribution contains example scripts in "bin/" which use
     Perinci::CmdLine::Any.
+
+FAQ
+  Where are examples using Perinci::CmdLine::Lite?
+    You can use the scripts in this distribution, and run them with:
+
+     % PERINCI_CMDLINE_ANY=Perinci::CmdLine::Lite script ...
 
 HOMEPAGE
     Please visit the project's homepage at

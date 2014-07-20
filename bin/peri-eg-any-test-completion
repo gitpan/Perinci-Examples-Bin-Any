@@ -1,7 +1,7 @@
 #!perl
 
 our $DATE = '2014-07-18'; # DATE
-our $VERSION = '0.01'; # VERSION
+our $VERSION = '0.02'; # VERSION
 
 use Perinci::CmdLine::Any;
 Perinci::CmdLine::Any->new(url=>'/Perinci/Examples/test_completion')->run;
@@ -21,7 +21,7 @@ peri-eg-any-test-completion - A script to test bash completion
 
 =head1 VERSION
 
-This document describes version 0.01 of peri-eg-any-test-completion (from Perl distribution Perinci-Examples-Bin-Any), released on 2014-07-18.
+This document describes version 0.02 of peri-eg-any-test-completion (from Perl distribution Perinci-Examples-Bin-Any), released on 2014-07-18.
 
 =head1 SYNOPSIS
 

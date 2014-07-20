@@ -1,7 +1,7 @@
 package Perinci::Examples::Bin::Any;
 
 our $DATE = '2014-07-18'; # DATE
-our $VERSION = '0.01'; # VERSION
+our $VERSION = '0.02'; # VERSION
 
 use 5.010001;
 
@@ -20,12 +20,20 @@ Perinci::Examples::Bin::Any - Perinci example scripts (using Perinci::CmdLine::A
 
 =head1 VERSION
 
-This document describes version 0.01 of Perinci::Examples::Bin::Any (from Perl distribution Perinci-Examples-Bin-Any), released on 2014-07-18.
+This document describes version 0.02 of Perinci::Examples::Bin::Any (from Perl distribution Perinci-Examples-Bin-Any), released on 2014-07-18.
 
 =head1 DESCRIPTION
 
 This distribution contains example scripts in C<bin/> which use
 L<Perinci::CmdLine::Any>.
+
+=head1 FAQ
+
+=head2 Where are examples using Perinci::CmdLine::Lite?
+
+You can use the scripts in this distribution, and run them with:
+
+ % PERINCI_CMDLINE_ANY=Perinci::CmdLine::Lite script ...
 
 =head1 HOMEPAGE
 

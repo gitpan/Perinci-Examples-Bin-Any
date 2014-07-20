@@ -29,7 +29,7 @@
       },
       "runtime" : {
          "requires" : {
-            "Perinci::CmdLine::Any" : "0",
+            "Perinci::CmdLine::Any" : "0.04",
             "Perinci::Examples" : "0.24",
             "Rinci" : "v1.1.32",
             "perl" : "5.010001"
@@ -56,7 +56,7 @@
          "web" : "https://github.com/sharyanto/perl-Perinci-Examples-Bin-Any"
       }
    },
-   "version" : "0.01",
+   "version" : "0.02",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.018002"
