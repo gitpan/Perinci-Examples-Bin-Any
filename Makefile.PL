@@ -11,23 +11,24 @@ use ExtUtils::MakeMaker 6.30;
 
 my %WriteMakefileArgs = (
   "ABSTRACT" => "Perinci example scripts (using Perinci::CmdLine::Any)",
-  "AUTHOR" => "Steven Haryanto <stevenharyanto\@gmail.com>",
+  "AUTHOR" => "perlancar <perlancar\@cpan.org>",
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => "6.30"
   },
   "DISTNAME" => "Perinci-Examples-Bin-Any",
   "EXE_FILES" => [
-    "bin/peri-eg-any-complete-fruits",
-    "bin/peri-eg-any-multi",
-    "bin/peri-eg-any-test-completion",
-    "bin/peri-eg-any-single"
+    "bin/peri-eg-single-any",
+    "bin/peri-eg-multi-any",
+    "bin/peri-eg-test-completion-any",
+    "bin/peri-eg-complete-fruits-any",
+    "bin/peri-eg-gen-random-bytes-any"
   ],
   "LICENSE" => "perl",
   "NAME" => "Perinci::Examples::Bin::Any",
   "PREREQ_PM" => {
     "Perinci::CmdLine::Any" => "0.04",
-    "Perinci::Examples" => "0.24",
-    "Rinci" => "v1.1.32"
+    "Perinci::Examples" => "0.36",
+    "Rinci" => "v1.1.62"
   },
   "TEST_REQUIRES" => {
     "File::Spec" => 0,
@@ -35,7 +36,7 @@ my %WriteMakefileArgs = (
     "IPC::Open3" => 0,
     "Test::More" => 0
   },
-  "VERSION" => "0.02",
+  "VERSION" => "0.03",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -47,8 +48,8 @@ my %FallbackPrereqs = (
   "IO::Handle" => 0,
   "IPC::Open3" => 0,
   "Perinci::CmdLine::Any" => "0.04",
-  "Perinci::Examples" => "0.24",
-  "Rinci" => "v1.1.32",
+  "Perinci::Examples" => "0.36",
+  "Rinci" => "v1.1.62",
   "Test::More" => 0
 );
 

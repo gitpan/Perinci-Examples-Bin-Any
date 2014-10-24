@@ -1,7 +1,7 @@
 #!perl
 
-our $DATE = '2014-07-18'; # DATE
-our $VERSION = '0.02'; # VERSION
+our $DATE = '2014-10-24'; # DATE
+our $VERSION = '0.03'; # VERSION
 
 use 5.010;
 use strict;
@@ -96,7 +96,7 @@ Perinci::CmdLine::Any->new(
 )->run;
 
 # ABSTRACT: Test command with multiple subcommands
-# PODNAME: peri-eg-any-multi
+# PODNAME: peri-eg-multi-any
 
 __END__
 
@@ -106,11 +106,11 @@ __END__
 
 =head1 NAME
 
-peri-eg-any-multi - Test command with multiple subcommands
+peri-eg-multi-any - Test command with multiple subcommands
 
 =head1 VERSION
 
-This document describes version 0.02 of peri-eg-any-multi (from Perl distribution Perinci-Examples-Bin-Any), released on 2014-07-18.
+This document describes version 0.03 of peri-eg-multi-any (from Perl distribution Perinci-Examples-Bin-Any), released on 2014-10-24.
 
 =head1 SYNOPSIS
 
@@ -120,7 +120,7 @@ Please visit the project's homepage at L<https://metacpan.org/release/Perinci-Ex
 
 =head1 SOURCE
 
-Source repository is at L<https://github.com/sharyanto/perl-Perinci-Examples-Bin-Any>.
+Source repository is at L<https://github.com/perlancar/perl-Perinci-Examples-Bin-Any>.
 
 =head1 BUGS
 
@@ -132,11 +132,11 @@ feature.
 
 =head1 AUTHOR
 
-Steven Haryanto <stevenharyanto@gmail.com>
+perlancar <perlancar@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Steven Haryanto.
+This software is copyright (c) 2014 by perlancar@cpan.org.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

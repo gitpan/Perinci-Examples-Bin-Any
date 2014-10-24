@@ -6,10 +6,11 @@ META.json
 META.yml
 Makefile.PL
 README
-bin/peri-eg-any-complete-fruits
-bin/peri-eg-any-multi
-bin/peri-eg-any-single
-bin/peri-eg-any-test-completion
+bin/peri-eg-complete-fruits-any
+bin/peri-eg-gen-random-bytes-any
+bin/peri-eg-multi-any
+bin/peri-eg-single-any
+bin/peri-eg-test-completion-any
 dist.ini
 lib/Perinci/Examples/Bin/Any.pm
 t/00-compile.t

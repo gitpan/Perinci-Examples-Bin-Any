@@ -1,12 +1,13 @@
-package Perinci::Examples::Bin::Any;
+#!perl
 
 our $DATE = '2014-10-24'; # DATE
 our $VERSION = '0.03'; # VERSION
 
-use 5.010001;
+use Perinci::CmdLine::Any;
+Perinci::CmdLine::Any->new(url=>'/Perinci/Examples/gen_random_bytes')->run;
 
-1;
-# ABSTRACT: Perinci example scripts (using Perinci::CmdLine::Any)
+# ABSTRACT: Generate random bytes
+# PODNAME: peri-eg-gen-random-bytes-any
 
 __END__
 
@@ -16,24 +17,13 @@ __END__
 
 =head1 NAME
 
-Perinci::Examples::Bin::Any - Perinci example scripts (using Perinci::CmdLine::Any)
+peri-eg-gen-random-bytes-any - Generate random bytes
 
 =head1 VERSION
 
-This document describes version 0.03 of Perinci::Examples::Bin::Any (from Perl distribution Perinci-Examples-Bin-Any), released on 2014-10-24.
+This document describes version 0.03 of peri-eg-gen-random-bytes-any (from Perl distribution Perinci-Examples-Bin-Any), released on 2014-10-24.
 
-=head1 DESCRIPTION
-
-This distribution contains example scripts in C<bin/> which use
-L<Perinci::CmdLine::Any>.
-
-=head1 FAQ
-
-=head2 Where are examples using Perinci::CmdLine::Lite?
-
-You can use the scripts in this distribution, and run them with:
-
- % PERINCI_CMDLINE_ANY=Perinci::CmdLine::Lite script ...
+=head1 SYNOPSIS
 
 =head1 HOMEPAGE
 
