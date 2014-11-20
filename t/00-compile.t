@@ -4,7 +4,7 @@ use warnings;
 
 # this test was generated with Dist::Zilla::Plugin::Test::Compile 2.040
 
-use Test::More  tests => 6 + ($ENV{AUTHOR_TESTING} ? 1 : 0);
+use Test::More  tests => 7 + ($ENV{AUTHOR_TESTING} ? 1 : 0);
 
 
 
@@ -14,6 +14,7 @@ my @module_files = (
 
 my @scripts = (
     'bin/peri-eg-complete-fruits-any',
+    'bin/peri-eg-demo-cli-opts-any',
     'bin/peri-eg-gen-random-bytes-any',
     'bin/peri-eg-multi-any',
     'bin/peri-eg-single-any',

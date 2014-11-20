@@ -1,7 +1,7 @@
 #!perl
 
-our $DATE = '2014-10-24'; # DATE
-our $VERSION = '0.03'; # VERSION
+our $DATE = '2014-11-20'; # DATE
+our $VERSION = '0.04'; # VERSION
 
 use 5.010;
 use strict;
@@ -110,9 +110,21 @@ peri-eg-multi-any - Test command with multiple subcommands
 
 =head1 VERSION
 
-This document describes version 0.03 of peri-eg-multi-any (from Perl distribution Perinci-Examples-Bin-Any), released on 2014-10-24.
+This document describes version 0.04 of peri-eg-multi-any (from Perl distribution Perinci-Examples-Bin-Any), released on 2014-11-20.
 
 =head1 SYNOPSIS
+
+=head1 BASH COMPLETION
+
+This script has bash completion capability.
+
+To activate bash completion for this script, put:
+
+ complete -C peri-eg-multi-any peri-eg-multi-any
+
+in your bash startup (e.g. C<~/.bashrc>). Your next shell session will then recognize tab completion for the command. Or, you can also directly execute the line above in your shell to activate immediately.
+
+You can also install L<App::BashCompletionProg> which makes it easy to add completion for Perinci::CmdLine-based scripts. After you install the module and put C<. ~/.bash-complete-prog> (or C<. /etc/bash-complete-prog>), you can just run C<bash-completion-prog> and the C<complete> command will be added to your C<~/.bash-completion-prog>. Your next shell session will then recognize tab completion for the command.
 
 =head1 HOMEPAGE
 

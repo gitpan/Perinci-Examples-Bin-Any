@@ -7,6 +7,7 @@ META.yml
 Makefile.PL
 README
 bin/peri-eg-complete-fruits-any
+bin/peri-eg-demo-cli-opts-any
 bin/peri-eg-gen-random-bytes-any
 bin/peri-eg-multi-any
 bin/peri-eg-single-any
