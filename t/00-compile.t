@@ -4,12 +4,13 @@ use warnings;
 
 # this test was generated with Dist::Zilla::Plugin::Test::Compile 2.040
 
-use Test::More  tests => 7 + ($ENV{AUTHOR_TESTING} ? 1 : 0);
+use Test::More  tests => 9 + ($ENV{AUTHOR_TESTING} ? 1 : 0);
 
 
 
 my @module_files = (
-    'Perinci/Examples/Bin/Any.pm'
+    'Perinci/Examples/Bin/Any.pm',
+    'Perinci/Examples/Bin/Any/Multi.pm'
 );
 
 my @scripts = (
@@ -17,7 +18,8 @@ my @scripts = (
     'bin/peri-eg-demo-cli-opts-any',
     'bin/peri-eg-gen-random-bytes-any',
     'bin/peri-eg-multi-any',
-    'bin/peri-eg-single-any',
+    'bin/peri-eg-multi-embedded-any',
+    'bin/peri-eg-single-embedded-any',
     'bin/peri-eg-test-completion-any'
 );
 

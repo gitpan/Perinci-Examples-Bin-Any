@@ -1,10 +1,10 @@
 #!perl
 
 # Note: This script is a CLI interface to Riap function /Perinci/Examples/Completion/fruits
-# and generated automatically using Dist::Zilla::Plugin::Rinci::ScriptFromFunc version 0.02
+# and generated automatically using Dist::Zilla::Plugin::Rinci::ScriptFromFunc version 0.03
 
-our $DATE = '2014-11-20'; # DATE
-our $VERSION = '0.04'; # VERSION
+our $DATE = '2014-11-21'; # DATE
+our $VERSION = '0.05'; # VERSION
 
 use 5.010001;
 use strict;
@@ -31,21 +31,11 @@ peri-eg-complete-fruits-any - peri-eg-complete-fruits-any
 
 =head1 VERSION
 
-This document describes version 0.04 of peri-eg-complete-fruits-any (from Perl distribution Perinci-Examples-Bin-Any), released on 2014-11-20.
+This document describes version 0.05 of peri-eg-complete-fruits-any (from Perl distribution Perinci-Examples-Bin-Any), released on 2014-11-21.
 
 =head1 SYNOPSIS
 
-Usage:
-
- % peri-eg-complete-fruits-any
-
-Examples:
-
- TODO
-
-To see all options:
-
- % peri-eg-complete-fruits-any --help
+ % peri-eg-complete-fruits-any [options] [fruits] ...
 
 =head1 DESCRIPTION
 
@@ -53,7 +43,71 @@ Demonstrates completion of array elements.
 
 =head1 OPTIONS
 
- TODO
+C<*> marks required options.
+
+=head2 Common options
+
+=over
+
+=item B<--config-path>=I<s>
+
+Set path to configuration file.
+
+=item B<--config-profile>=I<s>
+
+Set configuration profile to use.
+
+=item B<--format-options>=I<s>
+
+Pass options to formatter.
+
+=item B<--format>=I<s>
+
+Choose output format, e.g. json, text.
+
+=item B<--help>, B<-h>, B<-?>
+
+Display this help message.
+
+=item B<--json>
+
+Equivalent to --format=json-pretty.
+
+=item B<--noconfig>, B<--no-config>
+
+Do not use any configuration file.
+
+=item B<--perl>
+
+Equivalent to --format=perl.
+
+=item B<--version>, B<-v>
+
+Show version.
+
+=item B<--yaml>
+
+Equivalent to --format=yaml.
+
+=back
+
+=head2 Options
+
+=over
+
+=item B<--fruits-json>=I<s>
+
+=item B<--fruits-yaml>=I<s>
+
+=item B<--fruits>=I<s@>
+
+=back
+
+=head1 FILES
+
+B</etc/peri-eg-complete-fruits-any.conf>
+
+B<~/peri-eg-complete-fruits-any.conf>
 
 =head1 BASH COMPLETION
 

@@ -56,7 +56,7 @@
          "web" : "https://github.com/perlancar/perl-Perinci-Examples-Bin-Any"
       }
    },
-   "version" : "0.04",
+   "version" : "0.05",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.018002"
@@ -65,7 +65,7 @@
          {
             "class" : "Dist::Zilla::Plugin::Rinci::ScriptFromFunc",
             "name" : "Rinci::ScriptFromFunc",
-            "version" : "0.02"
+            "version" : "0.03"
          },
          {
             "class" : "Dist::Zilla::Plugin::GatherDir",
@@ -242,8 +242,8 @@
                         "version" : "4.006"
                      },
                      {
-                        "class" : "Pod::Weaver::Plugin::Perinci",
-                        "name" : "@Author::PERLANCAR/Perinci",
+                        "class" : "Pod::Weaver::Plugin::Rinci",
+                        "name" : "@Author::PERLANCAR/Rinci",
                         "version" : "0.15"
                      },
                      {

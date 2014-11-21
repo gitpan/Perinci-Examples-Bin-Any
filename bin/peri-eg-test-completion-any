@@ -1,10 +1,10 @@
 #!perl
 
 # Note: This script is a CLI interface to Riap function /Perinci/Examples/test_completion
-# and generated automatically using Dist::Zilla::Plugin::Rinci::ScriptFromFunc version 0.02
+# and generated automatically using Dist::Zilla::Plugin::Rinci::ScriptFromFunc version 0.03
 
-our $DATE = '2014-11-20'; # DATE
-our $VERSION = '0.04'; # VERSION
+our $DATE = '2014-11-21'; # DATE
+our $VERSION = '0.05'; # VERSION
 
 use 5.010001;
 use strict;
@@ -31,21 +31,11 @@ peri-eg-test-completion-any - Do nothing, return args
 
 =head1 VERSION
 
-This document describes version 0.04 of peri-eg-test-completion-any (from Perl distribution Perinci-Examples-Bin-Any), released on 2014-11-20.
+This document describes version 0.05 of peri-eg-test-completion-any (from Perl distribution Perinci-Examples-Bin-Any), released on 2014-11-21.
 
 =head1 SYNOPSIS
 
-Usage:
-
- % peri-eg-test-completion-any
-
-Examples:
-
- TODO
-
-To see all options:
-
- % peri-eg-test-completion-any --help
+ % peri-eg-test-completion-any [options] [i1] [a1] ...
 
 =head1 DESCRIPTION
 
@@ -53,7 +43,224 @@ This function is used to test argument completion.
 
 =head1 OPTIONS
 
- TODO
+C<*> marks required options.
+
+=head2 Common options
+
+=over
+
+=item B<--config-path>=I<s>
+
+Set path to configuration file.
+
+=item B<--config-profile>=I<s>
+
+Set configuration profile to use.
+
+=item B<--format-options>=I<s>
+
+Pass options to formatter.
+
+=item B<--format>=I<s>
+
+Choose output format, e.g. json, text.
+
+=item B<--help>, B<-h>, B<-?>
+
+Display this help message.
+
+=item B<--json>
+
+Equivalent to --format=json-pretty.
+
+=item B<--noconfig>, B<--no-config>
+
+Do not use any configuration file.
+
+=item B<--perl>
+
+Equivalent to --format=perl.
+
+=item B<--version>, B<-v>
+
+Show version.
+
+=item B<--yaml>
+
+Equivalent to --format=yaml.
+
+=back
+
+=head2 Options
+
+=over
+
+=item B<--a1-json>=I<s>
+
+Array of strings, where the string has "in" schema clause (JSON-encoded).
+
+Completion library can perhaps complete from the `in` value and remember
+completed items when command-line option is repeated, e.g. in:
+
+    --a1 <tab>
+
+it will complete from any `in` value, but in:
+
+    --a1 apple --a1 <tab>
+
+it can exclude `apple` from the completion candidate.
+
+Currently the completion library `Perinci::Sub::Complete` does not do this
+though. Perhaps there can be an option to toggle this behavior.
+
+
+=item B<--a1-yaml>=I<s>
+
+Array of strings, where the string has "in" schema clause (YAML-encoded).
+
+Completion library can perhaps complete from the `in` value and remember
+completed items when command-line option is repeated, e.g. in:
+
+    --a1 <tab>
+
+it will complete from any `in` value, but in:
+
+    --a1 apple --a1 <tab>
+
+it can exclude `apple` from the completion candidate.
+
+Currently the completion library `Perinci::Sub::Complete` does not do this
+though. Perhaps there can be an option to toggle this behavior.
+
+
+=item B<--a1>=I<s@>
+
+Array of strings, where the string has "in" schema clause.
+
+Completion library can perhaps complete from the `in` value and remember
+completed items when command-line option is repeated, e.g. in:
+
+    --a1 <tab>
+
+it will complete from any `in` value, but in:
+
+    --a1 apple --a1 <tab>
+
+it can exclude `apple` from the completion candidate.
+
+Currently the completion library `Perinci::Sub::Complete` does not do this
+though. Perhaps there can be an option to toggle this behavior.
+
+
+=item B<--a2-json>=I<s>
+
+Array with element_completion routine that generate random letter (JSON-encoded).
+
+=item B<--a2-yaml>=I<s>
+
+Array with element_completion routine that generate random letter (YAML-encoded).
+
+=item B<--a2>=I<s@>
+
+Array with element_completion routine that generate random letter.
+
+=item B<--a3-json>=I<s>
+
+Array with element_completion routine that dies (JSON-encoded).
+
+See also `s3`.
+
+
+=item B<--a3-yaml>=I<s>
+
+Array with element_completion routine that dies (YAML-encoded).
+
+See also `s3`.
+
+
+=item B<--a3>=I<s@>
+
+Array with element_completion routine that dies.
+
+See also `s3`.
+
+
+=item B<--arg0-json>=I<s>
+
+Argument without any schema (JSON-encoded).
+
+=item B<--arg0-yaml>=I<s>
+
+Argument without any schema (YAML-encoded).
+
+=item B<--arg0>=I<s>
+
+Argument without any schema.
+
+=item B<--f0>=I<f>
+
+Float with just "float" schema defined.
+
+=item B<--f1>=I<f>
+
+Float with xmin/xmax on the schema.
+
+A completion library can attempt to provide some possible and incremental
+completion (e.g. if word is currently at one decimal digit like 1.2, it can
+provide completion of 1.20 .. 1.29).
+
+
+=item B<--i0>=I<i>
+
+Integer with just "int" schema defined.
+
+=item B<--i1>=I<i>
+
+Integer with min/xmax on the schema.
+
+A completion library (like `Perinci::Sub::Complete`) can generate a list of
+completion from the low end to the high end of the range, as long as it is not
+too long.
+
+
+=item B<--i2>=I<i>
+
+Integer with large range min/max on the schema.
+
+Unlike in `i1`, a completion library probably won't generate a number sequence
+for this argument because they are considered too long (1000+ items).
+
+
+=item B<--s1>=I<s>
+
+String with possible values in "in" schema clause.
+
+=item B<--s1b>=I<s>
+
+String with possible values in "in" schema clause, contains special characters.
+
+This argument is intended to test how special characters are escaped.
+
+
+=item B<--s2>=I<s>
+
+String with completion routine that generate random letter.
+
+=item B<--s3>=I<s>
+
+String with completion routine that dies.
+
+Completion should not display error (except perhaps under debugging). It should
+just provide no completion.
+
+
+=back
+
+=head1 FILES
+
+B</etc/peri-eg-test-completion-any.conf>
+
+B<~/peri-eg-test-completion-any.conf>
 
 =head1 BASH COMPLETION
 

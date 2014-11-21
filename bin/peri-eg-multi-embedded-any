@@ -1,7 +1,9 @@
 #!perl
 
-our $DATE = '2014-11-20'; # DATE
-our $VERSION = '0.04'; # VERSION
+# NO_PWP_RINCI
+
+our $DATE = '2014-11-21'; # DATE
+our $VERSION = '0.05'; # VERSION
 
 use 5.010;
 use strict;
@@ -9,9 +11,9 @@ use warnings;
 
 our %SPEC;
 
-$SPEC{single} = {
+$SPEC{add} = {
     v => 1.1,
-    summary => 'A function',
+    summary => 'A function to add to ints',
     description => <<'_',
 
 Just a dummy description. Just a dummy description. Yup, just a dummy
@@ -22,57 +24,81 @@ _
     args => {
         arg1 => {
             schema => 'int*',
+            req => 1,
             pos => 0,
             cmdline_aliases => { a=>{} },
         },
         arg2 => {
             schema => 'int*',
+            req => 1,
             pos => 1,
             cmdline_aliases => { b=>{} },
         },
-        op => {
-            summary => 'Operation to apply to arg1 & arg2',
-            schema  => ['str*', in => [qw/multiply subtract add divide/]],
-            req     => 1,
-            cmdline_aliases => {
-                minus => { schema=>'bool', summary => 'Alias for --op=subtract', code=>sub {$_[0]{op} = 'minus'} },
-            },
-        },
     },
 };
-sub single {
+sub add {
     my %args = @_;
 
     # we need to do validation ourselves because P::C::Lite currently doesn't do
     # it for us.
-    my $op = $args{op} or return [400, "Please specify op"];
-    $op =~ /\A(multiply|subtract|add|divide)\z/ or return [400, "Invalid op"];
-    my $a1 = $args{arg1}; !defined($a1) || $a1 =~ /\A[+-]?\d+\z/
-        or return [400, "Invalid arg1 (not an integer)"];
-    my $a2 = $args{arg2}; !defined($a2) || $a2 =~ /\A[+-]?\d+\z/
-        or return [400, "Invalid arg1 (not an integer)"];
+    my $a1 = $args{arg1}; defined($a1) or return [400, "Please specify arg1"];
+    $a1 =~ /\A[+-]?\d+\z/ or return [400, "Invalid arg1 (not an int)"];
+    my $a2 = $args{arg2}; defined($a2) or return [400, "Please specify arg2"];
+    $a2 =~ /\A[+-]?\d+\z/ or return [400, "Invalid arg2 (not an int)"];
 
-    if ($op eq 'multiply') {
-        defined($a1) && defined($a2) or return [400, "arg1 & arg2 required"];
-        [200, "OK", $a1 * $a2];
-    } elsif ($op eq 'subtract') {
-        defined($a1) && defined($a2) or return [400, "arg1 & arg2 required"];
-        [200, "OK", $a1 - $a2];
-    } elsif ($op eq 'add') {
-        defined($a1) && defined($a2) or return [400, "arg1 & arg2 required"];
-        [200, "OK", $a1 + $a2];
-    } elsif ($op eq 'divide') {
-        defined($a1) && defined($a2) or return [400, "arg1 & arg2 required"];
-        $a2 == 0 and return [500, "Division by zero"];
-        [200, "OK", $a1 / $a2];
-    }
+    [200, "OK", $a1 + $a2];
+}
+
+$SPEC{subtract} = {
+    v => 1.1,
+    summary => 'A function to subtract to ints',
+    description => <<'_',
+
+This function also has result_naked and args_as set to array.
+
+_
+    args => {
+        arg1 => {
+            schema => 'int*',
+            req => 1,
+            pos => 0,
+            cmdline_aliases => { a=>{} },
+        },
+        arg2 => {
+            schema => 'int*',
+            req => 1,
+            pos => 1,
+            cmdline_aliases => { b=>{} },
+        },
+    },
+    # not yet supported by P::C::Lite
+    #args_as => 'array',
+    result_naked => 1,
+};
+sub subtract {
+    my %args = @_;
+
+    # we need to do validation ourselves because P::C::Lite currently doesn't do
+    # it for us.
+    my $a1 = $args{a1}; defined($a1) or die [400, "Please specify arg1"];
+    $a1 =~ /\A[+-]?\d+\z/ or die [400, "Invalid arg1 (not an int)"];
+    my $a2 = $args{a2}; defined($a2) or die [400, "Please specify arg2"];
+    $a2 =~ /\A[+-]?\d+\z/ or die [400, "Invalid arg2 (not an int)"];
+
+    $a1 - $a2;
 }
 
 use Perinci::CmdLine::Any;
-Perinci::CmdLine::Any->new(url=>'/main/single')->run;
+Perinci::CmdLine::Any->new(
+    url          => '/main/',
+    subcommands  => {
+        add      => {url => '/main/add'},
+        subtract => {url => '/main/subtract'},
+    },
+)->run;
 
-# ABSTRACT: Test a single function (no subcommands)
-# PODNAME: peri-eg-single-any
+# ABSTRACT: Test command with multiple subcommands (function embedded in script)
+# PODNAME: peri-eg-multi-embedded-any
 
 __END__
 
@@ -82,11 +108,11 @@ __END__
 
 =head1 NAME
 
-peri-eg-single-any - Test a single function (no subcommands)
+peri-eg-multi-embedded-any - Test command with multiple subcommands (function embedded in script)
 
 =head1 VERSION
 
-This document describes version 0.04 of peri-eg-single-any (from Perl distribution Perinci-Examples-Bin-Any), released on 2014-11-20.
+This document describes version 0.05 of peri-eg-multi-embedded-any (from Perl distribution Perinci-Examples-Bin-Any), released on 2014-11-21.
 
 =head1 SYNOPSIS
 
@@ -96,7 +122,7 @@ This script has bash completion capability.
 
 To activate bash completion for this script, put:
 
- complete -C peri-eg-single-any peri-eg-single-any
+ complete -C peri-eg-multi-embedded-any peri-eg-multi-embedded-any
 
 in your bash startup (e.g. C<~/.bashrc>). Your next shell session will then recognize tab completion for the command. Or, you can also directly execute the line above in your shell to activate immediately.
 

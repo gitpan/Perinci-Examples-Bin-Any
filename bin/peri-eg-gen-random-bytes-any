@@ -1,10 +1,10 @@
 #!perl
 
 # Note: This script is a CLI interface to Riap function /Perinci/Examples/gen_random_bytes
-# and generated automatically using Dist::Zilla::Plugin::Rinci::ScriptFromFunc version 0.02
+# and generated automatically using Dist::Zilla::Plugin::Rinci::ScriptFromFunc version 0.03
 
-our $DATE = '2014-11-20'; # DATE
-our $VERSION = '0.04'; # VERSION
+our $DATE = '2014-11-21'; # DATE
+our $VERSION = '0.05'; # VERSION
 
 use 5.010001;
 use strict;
@@ -31,21 +31,11 @@ peri-eg-gen-random-bytes-any - Generate random bytes of specified length
 
 =head1 VERSION
 
-This document describes version 0.04 of peri-eg-gen-random-bytes-any (from Perl distribution Perinci-Examples-Bin-Any), released on 2014-11-20.
+This document describes version 0.05 of peri-eg-gen-random-bytes-any (from Perl distribution Perinci-Examples-Bin-Any), released on 2014-11-21.
 
 =head1 SYNOPSIS
 
-Usage:
-
- % peri-eg-gen-random-bytes-any
-
-Examples:
-
- TODO
-
-To see all options:
-
- % peri-eg-gen-random-bytes-any --help
+ % peri-eg-gen-random-bytes-any [options]
 
 =head1 DESCRIPTION
 
@@ -55,7 +45,71 @@ By default it will generate 1K worth of random garbage.
 
 =head1 OPTIONS
 
- TODO
+C<*> marks required options.
+
+=head2 Common options
+
+=over
+
+=item B<--config-path>=I<s>
+
+Set path to configuration file.
+
+=item B<--config-profile>=I<s>
+
+Set configuration profile to use.
+
+=item B<--format-options>=I<s>
+
+Pass options to formatter.
+
+=item B<--format>=I<s>
+
+Choose output format, e.g. json, text.
+
+=item B<--help>, B<-h>, B<-?>
+
+Display this help message.
+
+=item B<--json>
+
+Equivalent to --format=json-pretty.
+
+=item B<--noconfig>, B<--no-config>
+
+Do not use any configuration file.
+
+=item B<--perl>
+
+Equivalent to --format=perl.
+
+=item B<--version>, B<-v>
+
+Show version.
+
+=item B<--yaml>
+
+Equivalent to --format=yaml.
+
+=back
+
+=head2 Options
+
+=over
+
+=item B<--len>=I<i>
+
+Default value:
+
+ 1024
+
+=back
+
+=head1 FILES
+
+B</etc/peri-eg-gen-random-bytes-any.conf>
+
+B<~/peri-eg-gen-random-bytes-any.conf>
 
 =head1 BASH COMPLETION
 

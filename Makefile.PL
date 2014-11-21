@@ -21,8 +21,9 @@ my %WriteMakefileArgs = (
     "bin/peri-eg-gen-random-bytes-any",
     "bin/peri-eg-test-completion-any",
     "bin/peri-eg-demo-cli-opts-any",
-    "bin/peri-eg-single-any",
-    "bin/peri-eg-multi-any"
+    "bin/peri-eg-multi-embedded-any",
+    "bin/peri-eg-multi-any",
+    "bin/peri-eg-single-embedded-any"
   ],
   "LICENSE" => "perl",
   "NAME" => "Perinci::Examples::Bin::Any",
@@ -37,7 +38,7 @@ my %WriteMakefileArgs = (
     "IPC::Open3" => 0,
     "Test::More" => 0
   },
-  "VERSION" => "0.04",
+  "VERSION" => "0.05",
   "test" => {
     "TESTS" => "t/*.t"
   }
